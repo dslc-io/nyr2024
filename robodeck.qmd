@@ -1,0 +1,7 @@
+---
+title: "I Built a Robot to Write This Talk"
+author: "Jon Harmon"
+format: revealjs
+---
+
+## Placeholder
