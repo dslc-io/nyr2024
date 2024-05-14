@@ -1,0 +1,49 @@
+---
+title: |
+  Introducing {buttR}: A New R Package
+css: style.css
+execute:
+  eval: false
+  echo: true
+format:
+  revealjs:
+    theme: dark
+    footer: Jon Harmon | @jonthegeek@fosstodon.org
+    link-external-newwindow: true
+    transition: slide
+---
+
+
+# Introduction
+
+## What is buttR? (0:00-1:00)
+
+- 😄 Developed for butter enthusiasts!
+- 🧈 Perform advanced butter analytics
+
+![An image of a variety of butter](butter.png)
+
+# Features of buttR
+
+## Analyzing different types of butter (1:00-3:00)
+
+- 😋 Compare salted vs. unsalted butter
+- 📊 Detailed nutritional analysis
+
+![A chart showing butter comparison](butter_comparison.png)
+
+## Visualization capabilities (3:00-4:00)
+
+- 📈 Create butter consumption trends
+- 🎨 Customize butter-related graphics
+
+![A graph depicting butter consumption trends](butter_trends.png)
+
+# Conclusion
+
+## Future of buttR (4:00-5:00)
+
+- 🚀 Constant updates and improvements
+- 🥐 Stay tuned for croissant integration!
+
+![A futuristic image of butter](future_butter.png)

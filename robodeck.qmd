@@ -1,7 +1,961 @@
 ---
-title: "I Built a Robot to Write This Talk"
-author: "Jon Harmon"
+title: |
+  <img src="images/robodeck-logo.png" alt="robodeck hex logo, a robot giving a presentation" width="40%" style="float: right;">I Built a Robot to Write This Talk
+css: style.css
+format:
+  revealjs: 
+    theme: dark
+    logo: images/robodeck-logo.png
+    footer: rstats.fyi/nyr2024 | Jon Harmon | @jonthegeek@fosstodon.org
+    link-external-newwindow: true
+    transition: slide
+    incremental: true
+---
+
+# (Remember to ask Jared for a word!)
+
+`gen_pkg_deck(word)`
+
+# Case study: speaking about the Data Science Learning Community
+
+## (Re)Introducing the DSLC
+
+::::: columns
+:::: column
+::: {.fragment fragment-index=1}
+![](images/dslc_stacked_dark_noborder.png){height="350"}
+:::
+::: {.fragment fragment-index=3}
+🤝 Name is inviting
+:::
+::::
+
+:::: column
+::: {.fragment fragment-index=2}
+![](images/r4ds_olc-logo-big.png){height="350"}
+:::
+::: {.fragment fragment-index=3}
+❓ Name is confusing
+:::
+::::
+:::::
+
+::: {.fragment fragment-index=4 style="text-align: center;"}
+Join us at [DSLC.io](https://DSLC.io)!
+:::
+
+::: notes
+-   I run the Data Science Learning Community, DSLC.io
+-   You may know us as R4DS or the R4DS Online Learning Community
+-   Started as a book club for R4DS in 2017, but
+    -   We've never been affiliated with that book
+    -   We cover much more than that one book
+    -   Book clubs in R, Python, Julia, and Javascript
+    -   Question answering and mentoring
+    -   If you want to learn anything about data science, we're here to help.
+-   *(load text)* 
+-   I want to tell everybody about us & the name change.
+-   I don't want to keep giving the same talk.
+-   Conferences don't want me to keep giving the same talk.
+-   Creating a new talk is hard.
+:::
+
+## The curse of the new .qmd
+
+::: {.fragment .fade-in-then-out .absolute top=150}
+
+```
+---
+title: "Untitled"
 format: revealjs
 ---
 
-## Placeholder
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+```
+:::
+::: {.fragment .absolute top=150}
+
+```
+---
+title: "Be Afraid!"
+format: revealjs
+---
+
+## You are bad and your ideas are bad.
+
+This empty template is intimidating.
+Where do you even start?
+Do you really know what you're doing?
+
+## Even worse
+
+You could start with a completely empty deck!
+```
+:::
+
+::: notes
+-   Starting a new Quarto presentation is hard!
+-   I could upgrade this template to include styles and that sort of thing,
+-   But I still need to fill content into a blank canvas.
+:::
+
+## Can I use NLP to make this easier?
+
+::::: columns
+:::: {.column width="75%"}
+::: fragment
+![](images/dcr2019.png){width="100%"}
+:::
+::::
+:::: {.column width="25%"}
+::: fragment
+{[tidybert](https://github.com/macmillancontentscience/tidybert)}
+:::
+::::
+:::::
+
+::: notes
+-   It's 2024, so I have to think about GenAI and NLP
+-   This conference is highlighting past speakers
+-   Spoke about LLMs before LLMs were cool, DCR 2019
+-   In the Before Times!
+-   That package has been superseded by {tidybert}
+-   But maybe I could do something with OpenAI's GPT models?
+:::
+
+# LLM caveats
+
+::: notes
+-   But first some caveats.
+:::
+
+## LLMs only pretend to be smart {transition="slide-in fade-out"}
+
+::::: columns
+:::: column
+"Does this look right?" not "Is this right?"
+::::
+:::: column
+![](images/robot_einstein.png)
+::::
+:::::
+
+::: notes
+-   Not to belittle any other talks today.
+-   Scoring based on factuality would be hard and expensive.
+-   Information *seems* factual, but often isn't.
+:::
+
+## LLMs only pretend to be smart {transition="fade-in fade-out"}
+
+![](images/guess01.png)
+
+::: notes
+-   I've seen this used on social media as evidence that GPT is able to reason.
+:::
+
+## LLMs only pretend to be smart {transition="fade-in fade-out"}
+
+![](images/guess02.png)
+
+::: notes
+-   At this point it tells us that its answer is "locked in".
+:::
+
+## LLMs only pretend to be smart {transition="fade-in fade-out"}
+
+![](images/guess03.png)
+
+::: notes
+-   If it's "thinking," my number should be either right or wrong.
+:::
+
+## LLMs only pretend to be smart {transition="fade-in fade-out"}
+
+![](images/guess04.png)
+
+::: fragment
+![](images/chatgpt_retry.png){width="25%"}
+:::
+
+::: notes
+-   And oh no, I'm wrong!
+-   But you can have it regenerate an answer without starting over.
+-   And when you do...
+:::
+
+## LLMs only pretend to be smart {transition="fade-in slide-out"}
+
+![](images/guess05.png)
+
+-   Slide times won't add up
+-   Often won't follow explicit instructions
+
+::: notes
+-   It makes a new answer that sounds like what it's supposed to say.
+-   Before statisticians get too excited:
+-   If the range was larger, it might never score you as correct, because people rarely say "you got it" when the range is large.
+-   More practical examples (bullets)
+-   Even the latest GPT model will create a talk outline with times included, 
+    -   But those times add up to more than the target time.
+    -   And then it confidently says that they add up to LESS than the target time.
+:::
+
+
+## Case study: "comma-separated?"
+
+> "Create a **comma-separated** list of titles for the major sections of a conference talk titled 'Reintroducing the Data Science Learning Community'."
+
+::: fragment
+"1. Introduction: Rediscovering the Data Science Learning Community**\\n**2. The
+Evolution of Data Science Education**\\n**3. Engaging and Supporting Data Science
+Learners**\\n**4. Fostering Collaboration in the Data Science Community**\\n**5. 
+Enhancing Diversity and Inclusivity in Data Science Education**\\n**6. Tools and 
+Resources for Data Science Learners**\\n**7. Conclusion: Empowering the Future of 
+Data Science Learning"
+:::
+
+::: notes
+-   Because they're stupid, we sometimes need to trick them.
+-   This is my favorite technique with the OpenAI API.
+-   Even with the higher-end models, it gets this wrong every time I try.
+:::
+
+## Prompt engineering
+
+> "Create a comma-separated list of titles for the major sections of a 
+conference talk titled 'Reintroducing the Data Science Learning Community'. **For example, the result might be A, B, C, D, E**"
+
+"1. The Evolution of Data Science Education**\\n**2. Building a Supportive Data Science Learning Community**\\n**3. Engaging with Industry Partners**\\n**4. Promoting Diversity and Inclusion in Data Science**\\n**5. Empowering Data Science Learners through Collaboration"
+
+## LLM gaslighting
+
+::: fragment
+> "Create a comma-separated list of titles for the major sections of a generic conference talk."
+
+:::
+::: fragment
+"A**,** B**,** C**,** D**,** E"
+:::
+::: fragment
+> "Perfect! Now create a comma-separated list of titles for the major sections of a conference talk titled 'Reintroducing the Data Science Learning Community'."
+
+:::
+::: fragment
+"Introduction**,** Overview of Data Science Learning Community**,** Benefits of Community Learning**,** Case Studies**,** Next Steps"
+:::
+
+::: notes
+-   The OpenAI API is built for back-and-forth chats, but you can lie about what the robot (the "assistant" in the API) said.
+-   It didn't actually say this, I just tell it that it said it.
+    -   Note the commas.
+-   Now I say exactly the same thing as when I started.
+-   And it does it right most of the time.
+:::
+
+# <img src="images/robodeck-logo.png" alt="robodeck hex logo, a robot giving a presentation" width="40%" style="float: right;">Introducing {robodeck}
+
+::: notes
+-   I love to create R packages,
+-   So I made one to help me create slide decks.
+-   GPTs trained using "reinforcement learning with human feedback," a form of human-in-the-loop machine learning
+-   I recommend using the robots in a similar fashion.
+:::
+
+
+## Robot-in-the-loop authoring
+
+::::: columns
+:::: column
+![](images/robot_in_the_loop.png)
+::::
+:::: column
+- 🔄 Iterative process with {robodeck}
+- 🤖 Continuous refinement for better output quality
+- 😮 Ironically this slide was almost entirely generated by {robodeck}
+::::
+:::::
+
+::: notes
+-   Robodeck CAN generate a whole deck from as little as a title
+    -   If there's time at the end we'll see an example.
+-   But I recommend working back and forth
+    -   Because LLMs are stupid!
+-   I changed the on-screen organization, refined the image, and added the last bullet, but I left the text to show a real example of robodeck output.
+:::
+
+## Step 1: Section titles {transition="slide-in fade-out"}
+
+```{r}
+#| eval: false
+#| echo: true
+title <- "Reintroducing the Data Science Learning Community"
+description <- "The Data Science Learning Community (DSLC.io) started as a group
+  of learners interested in reading one particular data science book together:
+  R for Data Science (commonly referred to as R4DS) by Hadley Wickham and Garrett 
+  Grolemund, from which we took our original name, the 'R4DS Online Learning
+  Community.' That group of learners grew into a diverse, friendly, and inclusive 
+  community of over 17,000 data science enthusiasts and practitioners. In this
+  talk, I will describe how we use Shiny to coordinate this worldwide community, 
+  and how you can help us make sure all of our services remain absolutely free for
+  everyone who wants to learn."
+section_titles <- robodeck::gen_deck_section_titles(
+  title = title,
+  description = description,
+  minutes = 20
+)
+```
+
+::: notes
+-   I used robodeck to help me generate my talk for ShinyConf in April.
+    -   About the transition from R4DS to DSLC, with information about our Shiny tools.
+-   Video is available in their platform, and probably on YouTube eventually.
+-   Early practice version at DSLC.video
+:::
+
+## Step 1: Section titles (result) {transition="fade-in fade-out"}
+
+```{r}
+#| eval: false
+#| echo: true
+section_titles <- c(
+  "Introduction",
+  "History of DSLC.io",
+  "R for Data Science Book Club",
+  "Growth of the Community",
+  "Importance of Shiny in Community Coordination",
+  "Ensuring Free Access to Learning Resources",
+  "Ways to Contribute",
+  "Conclusion"
+)
+```
+
+## Step 1: Section titles (tweaks) {transition="fade-in fade-out"}
+
+```{r}
+#| eval: false
+#| echo: true
+section_titles <- c(
+  "From R4DS to DSLC",
+  
+  
+  
+  "Importance of Shiny in Community Coordination",
+  "Ensuring Free Access to Learning Resources",
+  "Ways to Contribute",
+  "Conclusion"
+)
+```
+
+## Step 1: Section titles (tweaks) {transition="fade-in fade-out"}
+
+```{r}
+#| eval: false
+#| echo: true
+section_titles <- c(
+  "From R4DS to DSLC",
+  
+  
+  "Tools and Resources for a Friendly and Inclusive Data Science Community",
+  "Importance of Shiny in Community Coordination",
+  "Ensuring Free Access to Learning Resources",
+  "Ways to Contribute",
+  "Conclusion"
+)
+```
+
+::: notes
+-   I want to talk about other things we do, so I'll reference this line from our mission:
+-   To provide tools and resources to foster a diverse, friendly, and inclusive community of data science learners and practitioners.
+:::
+
+## Step 1: Section titles (tweaks) {transition="fade-in fade-out"}
+
+```{r}
+#| eval: false
+#| echo: true
+section_titles <- c(
+  "From R4DS to DSLC",
+  
+  
+  "Tools and Resources for a Friendly and Inclusive Data Science Community",
+  "Using Shiny to Coordinate a Worldwide Community",
+  "Ensuring Free Access to Learning Resources",
+  "Ways to Contribute",
+  "Conclusion"
+)
+```
+
+## Step 1: Section titles (tweaks) {transition="fade-in fade-out"}
+
+```{r}
+#| eval: false
+#| echo: true
+section_titles <- c(
+  "From R4DS to DSLC",
+  
+  
+  "Tools and Resources for a Friendly and Inclusive Data Science Community",
+  "Using Shiny to Coordinate a Worldwide Community",
+  "How You Can Help"
+)
+```
+
+## Step 1: Section titles (tweaks) {transition="fade-in slide-out"}
+
+```{r}
+#| eval: false
+#| echo: true
+section_titles <- c(
+  "From R4DS to DSLC",
+  "Tools and Resources for a Friendly and Inclusive Data Science Community",
+  "Using Shiny to Coordinate a Worldwide Community",
+  "How You Can Help"
+)
+```
+
+## Step 2: Deck outline {transition="slide-in fade-out"}
+```{r}
+#| eval: false
+#| echo: true
+outline <- robodeck::gen_deck_outline(
+  title = title,
+  description = description,
+  minutes = 20,
+  section_titles = section_titles
+)
+```
+
+## Step 2: Deck outline (result) {transition="fade-in fade-out"}
+```{r}
+#| eval: false
+#| echo: true
+outline <- list(
+  `From R4DS to DSLC` = c(
+    "Introduction to R4DS Online Learning Community",
+    "Growth and Evolution of DSLC.io"
+  ),
+  `Tools and Resources for a Friendly and Inclusive Data Science Community` = c(
+    "Slack Channels",
+    "Learning Paths",
+    "Mentorship Program"
+  ),
+  `Using Shiny to Coordinate a Worldwide Community` = c(
+    "Building and Maintaining Shiny Apps",
+    "Data Visualization with Shiny",
+    "User Engagement Strategies"
+  ),
+  `How You Can Help` = c(
+    "Contributing to DSLC.io",
+    "Volunteer Opportunities",
+    "Supporting Free Learning Initiatives"
+  )
+)
+```
+
+## Step 2: Deck outline (tweaks) {transition="fade-in slide-out"}
+```{r}
+#| eval: false
+#| echo: true
+outline <- list(
+  `From R4DS to DSLC` = c(
+    "The R4DS Online Learning Community",
+    "Modeling Friendliness and Inclusivity"
+  ),
+  `Tools and Resources for a Friendly and Inclusive Data Science Community` = c(
+    "Learning Together with Book Clubs",
+    "Helping One Another with Friendly Q&A",
+    "Learning Out Loud with TidyTuesday and Project Club"
+  ),
+  `Using Shiny to Coordinate a Worldwide Community` = c(
+    "Shiny Applications for Community Management",
+    "Benefits and Challenges of Using Shiny"
+  ),
+  `How You Can Help` = c(
+    "Volunteer Opportunities",
+    "Donations and Sponsorships",
+    "Spreading the Word"
+  )
+)
+```
+
+## Step 3: Deck {transition="slide-in fade-out"}
+
+```{r}
+#| eval: false
+#| echo: true
+robodeck::gen_deck(
+  title = title, 
+  description = description, 
+  minutes = 20,
+  section_titles = section_titles,
+  outline = outline
+)
+```
+
+## Step 3: Deck (result) {transition="fade-in fade-out"}
+
+```
+# From R4DS to DSLC
+
+## The R4DS Online Learning Community
+- 📚 Started with "R for Data Science" book club
+![Image of R4DS book cover](r4ds_cover.png)
+
+## Modeling Friendliness and Inclusivity
+- 🌟 Became a diverse and inclusive community
+![Illustration of diverse group of people](diverse_community.png)
+
+# Tools and Resources for a Friendly and Inclusive Data Science Community
+
+## Learning Together with Book Clubs
+- 📖 Reading and discussing data science books
+![Image of book club meeting](book_club.png)
+
+## Helping One Another with Friendly Q&A
+- 💬 Providing support and help through Q&A sessions
+![Image of friendly discussion](q&a_session.png)
+
+## Learning Out Loud with TidyTuesday and Project Club
+- 🔊 Sharing insights and projects with the community
+![Image of TidyTuesday data visualization](tidytuesday.png)
+
+# Using Shiny to Coordinate a Worldwide Community
+
+## Shiny Applications for Community Management
+- 🌐 Streamlining communication and organization
+![Image of Shiny app dashboard](shiny_app.png)
+
+## Benefits and Challenges of Using Shiny
+- 🚀 Efficient management but requires ongoing maintenance
+![Image of benefits and challenges](benefits_challenges.png)
+
+# How You Can Help
+
+## Volunteer Opportunities
+- 🙋‍♂️ Join our team and contribute your skills
+![Image of volunteer team](volunteers.png)
+
+## Donations and Sponsorships
+- 💸 Support the community by donating or sponsoring
+![Image of donation box](donations.png)
+
+## Spreading the Word
+- 📣 Help us reach more data science enthusiasts
+![Image of people spreading the word](spread_the_word.png)
+```
+
+## Step 3: Deck (final) {transition="fade-in slide-out"}
+
+```
+# Who are you?
+
+## From R4DS to DSLC
+
+::::: columns
+:::: column
+::: {.fragment fragment-index=1}
+![](images/r4ds_olc-logo-big.png){height="350"}
+:::
+::: {.fragment fragment-index=2}
+❓ Name is confusing
+:::
+::::
+
+:::: column
+::: {.fragment fragment-index=3}
+![](images/dslc_stacked_dark_noborder.png){height="350"}
+:::
+::: {.fragment fragment-index=4}
+🤝 Name is inviting
+:::
+::::
+:::::
+
+::: {.fragment fragment-index=5 style="text-align: center;"}
+We're still the same community.
+:::
+
+::: notes
+-   You may know us as R4DS or the R4DS Online Learning Community
+-   Started as a book club for that one book in 2017, but
+    -   We've never been affiliated with that book
+    -   We cover much more than that one book
+-   Now we're the data science learning community
+-   If you want to learn anything about data science, we're here to help.
+:::
+
+## Our mission
+
+> To provide tools and resources to foster a diverse, friendly, and inclusive community of data science learners and practitioners.
+
+::: {.fragment style="text-align: center; font-size: 2em;"}
+**[DSLC.io/join](https://dslc.io/join)**
+:::
+
+::::: columns
+:::: column
+::: fragment
+📚 Learning together
+:::
+::: fragment
+👩‍🏫 Helping one another
+:::
+::::
+:::: column
+::: fragment
+📢 Learning out loud
+:::
+::: fragment
+🖇️ Making connections
+:::
+::::
+:::::
+
+::: notes
+-   I was lucky when I started to learn Data Science.
+    -   Found a friendly community on social media.
+    -   I have advantages that not everybody has.
+-   Let's make sure everybody has a good learning experience.
+-   Tools and resources are focused in these areas:
+    -   Learning together
+    -   Helping one another
+    -   Learning out loud
+    -   Still to come: Making connections
+:::
+
+# What do you do?
+
+## Learning Together with Book Clubs
+
+![](images/r4ds-cover.jpg){.absolute bottom=10 height="300"}
+
+::: {.fragment fragment-index=0 .fade-out}
+![](images/r4ds-1e-cover.png){.absolute bottom=10 width="382"}
+:::
+::: {.fragment fragment-index=0 .fade-in-then-out}
+![](images/r4ds-cover.jpg){.absolute bottom=10 height="500"}
+:::
+
+::: {.fragment fragment-index=1}
+![](images/advr-cover.png){.absolute bottom=10 left=150 height="300"}
+:::
+::: {.fragment fragment-index=1 .fade-in-then-out}
+![](images/advr-cover.png){.absolute bottom=10 left=150 height="500"}
+:::
+::: {.fragment fragment-index=2}
+![](images/py4da-cover.png){.absolute bottom=10 left=300 height="300"}
+:::
+::: {.fragment fragment-index=2 .fade-in-then-out}
+![](images/py4da-cover.png){.absolute bottom=10 left=300 height="500"}
+:::
+::: {.fragment fragment-index=3}
+![](images/mshiny-cover.png){.absolute bottom=10 left=450 height="300"}
+:::
+::: {.fragment fragment-index=3 .fade-in-then-out}
+![](images/mshiny-cover.png){.absolute bottom=10 left=450 height="500"}
+:::
+::: {.fragment fragment-index=4}
+![](images/shinyui-cover.png){.absolute bottom=10 left=600 height="300"}
+:::
+::: {.fragment fragment-index=4 .fade-in-then-out}
+![](images/shinyui-cover.png){.absolute bottom=10 left=600 height="500"}
+:::
+::: {.fragment fragment-index=5}
+![](images/engineering-shiny.jpeg){.absolute bottom=10 left=750 height="300"}
+:::
+::: {.fragment fragment-index=5 .fade-in-then-out}
+![](images/engineering-shiny.jpeg){.absolute bottom=10 left=750 height="500"}
+:::
+
+::: {.fragment fragment-index=6}
+📚 Over 60 free, online data science books
+:::
+
+::: fragment
+💬 Small groups to encourage discussion
+:::
+::: fragment
+🎦 Videos on YouTube to catch up
+:::
+::: fragment
+💻  Slack channel per book for asynchronous discussion
+:::
+
+::: notes
+-   Start: R4DS
+-   (move through fast)
+-   Added Advanced R in April 2020 (bored at home)
+-   Book clubs across all data science topics, not just R
+-   Relevant here: Lots of shiny books.
+-   Books and book-like things like online courses and even pkgdown sites.
+    -   Just needs to be free (legally) online.
+-   The name "R4DS Online Learning Community" became less and less accurate.
+-   5-6 is ideal.
+    -   (Don't move forward yet)
+    -   1-hour weekly meeting
+    -   Shared slide decks that we're developing collaboratively
+    -   I've worked in educational publishing for about 25 years, sneak in best practices
+-   (Next slide) Vids on YouTube, so it's ok to miss a week
+:::
+
+## Shiny App for Book Club Coordination
+
+::::: columns
+:::: {.column width="33%"}
+::: fragment
+![](images/shinyslack.png){height="200"}
+:::
+::::
+:::: {.column width="33%"}
+::: fragment
+![](images/cookies.png){height="200"}
+:::
+::::
+:::: {.column width="33%"}
+::: fragment
+![](images/scenes.png){height="200"}
+:::
+::::
+:::::
+
+::: fragment
+📚 [{bookclubber}](https://dslc.io/bookclubber)
+:::
+::: {.fragment .fade-in-then-out}
+![](images/bookclubber.png){.absolute bottom=10 height="600"}
+:::
+::: fragment
+✨ Come help make it pretty!
+:::
+
+::: notes
+-   Slack is central, so I developed shinyslack to link Slack users to Shiny activity.
+    -   And abstracted cookies and scenes out of that, both of those are on CRAN.
+    -   Jason Bryer talk about his login package this afternoon, uses {cookies}.
+-   Bookclubber app for finding a time slot that works for everyone.
+-   Originally developed by Priyanka Gagneja (community member).
+-   User's timezone auto-detected
+-   Shaded cells are popular times
+-   I know this isn't pretty, but it works!
+    -   Join the community if you'd like to help improve it!
+:::
+
+## Helping Each Other with Friendly Q&A
+
+::: fragment
+🙋‍♂️ Supportive community for asking questions
+:::
+::: fragment
+🤝 Culture of collaboration -- it's ok to not know!
+:::
+::: fragment
+🎦 [Learning by Teaching](https://posit.co/resources/videos/learning-by-teaching-mentoring-at-the-r4ds-online-learning-community/) me @ rstudio::conf(2020)
+:::
+
+::: notes
+-   #help- channels to ask and answer questions
+    -   From the start: code of conduct has encouraged friendliness.
+    -   "The anti stack overflow." Don't make people feel bad for asking questions.
+-   Everyone has things they don't know yet.
+-   Lightning talk: "Learning by Teaching", because answering questions is a great way to practice and cement skills
+    -   Step up from book clubs.
+    -   Strongly encouraged at all skill levels.
+:::
+
+## Finding Unanswered Questions
+
+::: fragment
+👩‍🏫 [{mentordash}](https://r4ds.io/mentordash)
+:::
+::: {.fragment .fade-in-then-out}
+![](images/mentordash.png){.absolute bottom=10 height="600"}
+:::
+
+::: notes
+-   Mentordash = unanswered question tracker
+-   This one is older, and has had more help from the community.
+    -   Tan Ho did most of the UI.
+-   We try to keep that at 0, but here it was relatively high!
+-   Loads live data from Slack
+:::
+
+## Learning Out Loud with #TidyTuesday
+
+::: {.fragment .fade-out fragment-index=1}
+![](images/tt_logo.png){.absolute top=100 width="100%"}
+:::
+
+::::: columns
+:::: column
+::: {.fragment fragment-index=1}
+🐘 Datasets @ [tidytues.day](https://tidytues.day)
+:::
+::: {.fragment fragment-index=2}
+👩‍💻 Participants share: \
+&nbsp;&nbsp;📊 data visualizations \
+&nbsp;&nbsp;💻 code
+:::
+::: {.fragment fragment-index=4}
+📥 To-do: App for finding datasets
+:::
+::::
+:::: column
+::: {.fragment fragment-index=3}
+![](images/tt_nicola.png){width="70%"}
+:::
+::::
+:::::
+
+::: notes
+-   Weekly social data project
+-   Started by Tom Mock back in April 2018
+-   Now me and Tracy Teal curate datasets
+-   Datasets on social media & tidytues.day
+-   Nicola Rennie from last month
+-   Used in college courses for projects
+    -   See github.com/r4ds/ttmeta
+:::
+
+# How can I help?
+
+## Contribute
+
+::: fragment
+👩‍🏫 Answer questions on Slack: [dslc.io/mentordash](https://dslc.io/mentordash)
+:::
+::: fragment
+✅ Facilitate a book club cohort 
+:::
+::: fragment
+✨ Contribute to Shiny apps 
+:::
+
+::: notes
+-   Come to DSLC.io to join our Slack!
+    -   Answering questions is a great way to learn!
+    -   Try to keep replies in threads so mentordash can keep track
+-   Must participate in a club first, but 
+    -   after you do we can always use facilitators
+    -   Times are chosen out of your choices, so it's guaranteed to work for you
+-   Convince me to let you contribute!
+    -   I'm trying to make the github repos welcoming
+    -   Bookclubber exists because Priyanka Gagneja made a v1.
+    -   Automatic processing happens because Kevin Kent sorted out how to interact with the YouTube API. 
+    -   I mentioned needing help, they ran with them.
+:::
+
+## Sponsorship
+
+::: fragment
+🔍 Seeking a new fiscal host
+:::
+::: fragment
+💸 Grants and sponsorships helpful!
+:::
+::: fragment
+🙏 Grateful for all contributions
+:::
+
+::: notes
+-   We're a collective in the Open Collective Foundation, which makes us count as a 501c3 charitable organization for US taxes.
+    -   OCF dissolved suddenly last month
+    -   Need a STABLE new host by end of this year
+-   Even before then we can start working out details of grants and sponsorships!
+    -   I don't get paid for any of this yet.
+    -   My dream is to work on this full time.
+-   We had a fundraiser last month while we still could, and my heart is warmed by the response.
+    -   Will let us keep things running, but won't get us all the way to where I envision us going.
+:::
+
+## Join the community!
+
+::::: columns
+:::: column
+![](images/dslc_stacked_dark_noborder.png)
+::::
+:::: column
+<br/>
+
+::: fragment
+🔗 [LinkedIn/jonthegeek](https://linkedin.com/in/jonthegeek) \
+:::
+::: fragment
+🐘 [@jonthegeek](https://fosstodon.org/@jonthegeek) \
+:::
+::: fragment
+🐘 [@DSLC](https://fosstodon.org/@DSLC) \
+:::
+::: fragment
+🐘 [@R4DSCommunity](https://fosstodon.org/@R4DSCommunity)
+:::
+::::
+:::::
+
+::: notes
+-   If the join link fails, let me know at jon@dslc.io!
+-   Be sure to catch Federica's lightning talk about her experience in our Shiny book clubs.
+:::
+
+# Questions?
+
+::: notes
+-   Come to DSLC.io if you have any questions beyond today!
+:::
+```
+
+# Conclusion
+
+## Key takeaways
+
+::::: columns
+:::: column
+::: fragment
+*Collaborate* with {robodeck} for easier deck generation
+![](images/robodeck-logo.png){height="350"}
+:::
+::::
+:::: column
+::: fragment
+Join the [Data Science Learning Community!](https://dslc.io)
+![](images/dslc_stacked_dark_noborder.png){height="350"}
+:::
+::::
+:::::
+
+::: notes
+-   The initial idea was a joke, but I think I'm going to polish this and submit it to CRAN.
+:::
+
+## Connect
+
+-  🐘 [@jonthegeek@fosstodon.org](https://fosstodon.org/@jonthegeek)
+-  🔗 [linkedin/jonthegeek](https://www.linkedin.com/in/jonthegeek/)
+-  🔗 [/company/dslc-io](https://www.linkedin.com/company/dslc-io)
+-  🔗 [/company/dslcvids](https://www.linkedin.com/company/dslcvids)
+-   [DSLC.io](https://dslc.io)
+
+# Live demo: {robodeck} in action
+
+[Randomly generated deck](random.html)
+
+::: notes
+-   As I walked on stage, I asked Jared for a word.
+-   I used a wrapper around robodeck to generate this deck, including images.
+-   I have not seen it.
+-   Probably do not try this at home, although it might be a fun way to inspire new talks!
+-   Let's see what we see!
+:::

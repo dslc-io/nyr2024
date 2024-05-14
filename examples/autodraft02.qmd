@@ -1,0 +1,109 @@
+---
+title: "I Built a Robot to Write This Talk"
+css: style.css
+format:
+  revealjs: 
+    theme: dark
+    logo: images/robodeck-logo.png
+    footer: rstats.fyi/nyr2024 | Jon Harmon | @jonthegeek@fosstodon.org
+    link-external-newwindow: true
+    transition: slide
+---
+
+# Why am I talking to you about LLMs?
+
+## A Very Brief History of LLMs
+- 😃 LLMs have transformed the field of natural language processing
+- 😄 GPT-3 by OpenAI is one of the most powerful LLMs
+
+![A timeline of LLMs](llm_timeline.png)
+
+```{r}
+# Brief history of Large Language Models
+```
+
+## The Data Science Learning Community
+- 😎 The community's interest in LLMs
+- 🚀 Opportunities and challenges with LLMs
+
+![A group of data scientists collaborating](data_science_group.png)
+
+```{r}
+# Overview of the Data Science Learning Community
+```
+
+# Convincing OpenAI to generate Quarto slides
+
+## OpenAI Chat Completions
+- 😍 OpenAI's advanced capabilities
+- 🤖 Utilizing chat completions for slide generation
+
+![An illustration of OpenAI chat completions](openai_chat.png)
+
+```{r}
+# Using OpenAI chat completions for generating slides
+```
+
+## Wrapping an API in R
+- 😁 Accessing the OpenAI API
+- 🛠 Building an R package for seamless integration
+
+![An API connection structure](api_connection.png)
+
+```{r}
+# Wrapping the OpenAI API in R
+```
+
+## Gaslighting an LLM
+- 😂 Overcoming challenges in communication
+- 😜 Playing tricks to make the LLM work
+
+![A cartoon of a robot getting confused](robot_confusion.png)
+
+```{r}
+# Strategies for interacting with LLMs
+```
+
+# Using {robodeck}
+
+## {robodeck}: Quarto decks in three steps
+- 🤓 How {robodeck} simplifies slide creation
+- 📊 Generating Quarto slide decks effortlessly
+
+![Illustration of the {robodeck} logo](robodeck_logo.png)
+
+```{r}
+# Three steps to create Quarto slide decks with {robodeck}
+```
+
+## {robodeck} demo
+- 🎉 Showcasing {robodeck} in action
+- 🤩 Features and capabilities of {robodeck}
+
+![A demo of {robodeck} generating slides](robodeck_demo.png)
+
+```{r}
+# Demo of {robodeck} in action
+```
+
+# Conclusion
+
+## Takeaways
+- 😌 Balancing automation and human touch
+- 🧐 Exploring the future of LLMs in content creation
+
+![An image reflecting on the talk's takeaways](takeaways_image.png)
+
+```{r}
+# Key takeaways from the talk
+```
+
+## Contact
+- 📧 Reach out for more information
+- 🌐 Connect with me online for further discussions
+
+![Contact details for further inquiries](contact_info.png)
+
+```{r}
+# Contact information for further communication
+```

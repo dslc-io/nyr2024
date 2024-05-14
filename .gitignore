@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+/.quarto/
+random_files
+robodeck_files
