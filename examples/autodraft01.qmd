@@ -1,0 +1,91 @@
+---
+title: "I Built a Robot to Write This Talk"
+css: style.css
+format:
+  revealjs: 
+    theme: dark
+    logo: images/robodeck-logo.png
+    footer: rstats.fyi/nyr2024 | Jon Harmon | @jonthegeek@fosstodon.org
+    link-external-newwindow: true
+    transition: slide
+---
+
+# Why am I talking to you about LLMs?
+
+![An illustration of a robot](robot.png)
+
+## A Very Brief History of LLMs
+
+- 👽 LLMs have come a long way
+- 👽 Models like GPT-3 are changing the game
+
+![A timeline of LLM development](llm_timeline.png)
+
+## The Data Science Learning Community
+
+- 🌟 LLMs spark debates in the DS community
+- 🌟 Are they a threat or an opportunity?
+
+![A group of people in a discussion](discussion.png)
+
+# Convincing OpenAI to generate Quarto slides
+
+![A rocket launching into space](rocket.png)
+
+## OpenAI Chat Completions
+
+- 🌌 Generating text with OpenAI
+- 🌌 OpenAI's capabilities and limitations
+
+![A starry night sky](starry_night.png)
+
+## Wrapping an API in R
+
+- 🧩 Integrating the OpenAI API with R
+- 🧩 Challenges and solutions in the process
+
+![A jigsaw puzzle coming together](puzzle.png)
+
+## Gaslighting an LLM
+
+- 🔥 Pushing the limits of language models
+- 🔥 Ethical considerations and implications
+
+![A flame symbolizing pushing boundaries](flame.png)
+
+# Using {robodeck}
+
+![A robot holding a deck of cards](robodeck.png)
+
+## {robodeck}: Quarto decks in three steps
+
+- 🃏 Step 1: Title your presentation
+- 🃏 Step 2: Run {robodeck} function
+- 🃏 Step 3: Magic! Your slides are ready
+
+![A magician performing a trick](magician.png)
+
+## {robodeck} demo
+
+- 🎬 Seeing {robodeck} in action
+- 🎬 Pros and cons of automated slide generation
+
+![A movie clapperboard](clapperboard.png)
+
+# Conclusion
+
+![A celebration with confetti](confetti.png)
+
+## Takeaways
+
+- 🌟 LLMs revolutionize content creation
+- 🌟 Collaboration is key in adapting to AI advancements
+
+![A lightbulb representing new ideas](lightbulb.png)
+
+## Contact
+
+- 📧 Email: your_email@example.com
+- 📞 Phone: +1234567890
+
+![A contact card with contact details](contact_card.png)
