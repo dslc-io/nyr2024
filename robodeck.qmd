@@ -1,12 +1,12 @@
 ---
 title: |
-  <img src="images/robodeck-logo.png" alt="robodeck hex logo, a robot giving a presentation" width="40%" style="float: right;">I Built a Robot to Write This Talk
+  <img src="images/qr.png" alt="qr code pointing to DSLC.io/nyr2024" width="40%" style="float: right;">I Built a Robot to Write This Talk
 css: style.css
 format:
   revealjs: 
     theme: dark
     logo: images/robodeck-logo.png
-    footer: rstats.fyi/nyr2024 | Jon Harmon | @jonthegeek@fosstodon.org
+    footer: DSLC.io/nyr2024 | Jon Harmon | @jonthegeek@fosstodon.org
     link-external-newwindow: true
     transition: slide
     incremental: true
@@ -938,19 +938,38 @@ Join the [Data Science Learning Community!](https://dslc.io)
 
 ::: notes
 -   The initial idea was a joke, but I think I'm going to polish this and submit it to CRAN.
+-   I'll push to CRAN before this, but I really want to integrate a Shiny app to encourage and streamline the back-and-forth process.
+-   Be sure to join us at DSLC.io!
+    -   New book clubs starting all the time!
+    -   Data-related Q&A
+    -   Hours of videos at DSLC.video!
+    -   #TidyTuesday on Mastodon and LinkedIn
 :::
 
 ## Connect
 
+::::: columns
+:::: {.column width="60%"}
+::: nonincremental
 -  🐘 [@jonthegeek@fosstodon.org](https://fosstodon.org/@jonthegeek)
+-  🐘 [@dslc@fosstodon.org](https://fosstodon.org/@dslc)
+-  🐘 [@dslcvids@fosstodon.org](https://fosstodon.org/@dslcvids)
 -  🔗 [linkedin/jonthegeek](https://www.linkedin.com/in/jonthegeek/)
 -  🔗 [/company/dslc-io](https://www.linkedin.com/company/dslc-io)
 -  🔗 [/company/dslcvids](https://www.linkedin.com/company/dslcvids)
 -   [DSLC.io](https://dslc.io)
+:::
+::::
+:::: {.column width="40%"}
+::: fragment
+![](images/dslc_stacked_dark_noborder.png)
+:::
+::::
+:::::
 
 # Live demo: {robodeck} in action
 
-[Randomly generated deck](random.html)
+[Randomly generated deck](random_deck/random.html)
 
 ::: notes
 -   As I walked on stage, I asked Jared for a word.

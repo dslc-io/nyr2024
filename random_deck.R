@@ -9,11 +9,11 @@ gen_pkg_deck <- function(word, path_word = "random", tries = 10) {
       return(gen_pkg_deck(word, path_word, tries = remaining))
     }
   )
+  .gen_pkg_deck_images(word, path_word)
 }
 
 .gen_pkg_deck_impl <- function(word, path_word = "random") {
   deck <- .generate_deck(word)
-  print(paste("Saving deck. word =", word))
   .save_deck(deck, path_word)
 }
 
@@ -67,7 +67,6 @@ gen_pkg_deck <- function(word, path_word = "random", tries = 10) {
   deck <- robodeck::gen_deck(
     talk_title, minutes = 5, description = talk_description
   )
-  print("robodeck: success")
   .finalize_deck(deck, talk_title)
 }
 
@@ -77,8 +76,31 @@ gen_pkg_deck <- function(word, path_word = "random", tries = 10) {
 }
 
 .save_deck <- function(deck, path_word) {
+  withr::local_dir("random_deck")
   deck_path <- glue::glue("{path_word}.qmd")
   html_path <- glue::glue("{path_word}.html")
   writeLines(deck, deck_path)
   quarto::quarto_render(deck_path, output_file = html_path)
+}
+
+.gen_pkg_deck_images <- function(word, path_word) {
+  withr::local_dir("random_deck")
+  deck_path <- glue::glue("{path_word}.qmd")
+  deck <- readLines(deck_path)
+  images <- stringr::str_subset(deck, "^\\!\\[.*\\]\\(.*\\)$") |>
+    strcapture(
+      "^\\!\\[(.*)\\]\\((.*)\\)$",
+      x = _,
+      tibble::tibble(desc = character(), filename = character())
+    )
+  pkg <- .create_pkg_name(word)
+  talk_title <- glue::glue("Introducing {{{pkg}}}: A New R Package")
+
+  purrr::walk2(
+    images$desc,
+    images$filename,
+    \(desc, filename) {
+      robodeck::gen_image(desc, title = talk_title, image_path = filename)
+    }
+  )
 }
