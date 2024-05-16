@@ -35,7 +35,7 @@ format:
 ![](images/r4ds_olc-logo-big.png){height="350"}
 :::
 ::: {.fragment fragment-index=3}
-❓ Name is confusing
+❓Name is confusing
 :::
 ::::
 :::::
@@ -924,8 +924,8 @@ We're still the same community.
 ::::: columns
 :::: column
 ::: fragment
-*Collaborate* with {robodeck} for easier deck generation
-![](images/robodeck-logo.png){height="350"}
+*Collaborate* with {[robodeck](https://jonthegeek.github.io/robodeck)} for easier deck generation
+[![](images/robodeck-logo.png){height="350"}](https://jonthegeek.github.io/robodeck)
 :::
 ::::
 :::: column
@@ -951,12 +951,13 @@ Join the [Data Science Learning Community!](https://dslc.io)
 ::::: columns
 :::: {.column width="60%"}
 ::: nonincremental
--  🐘 [@jonthegeek@fosstodon.org](https://fosstodon.org/@jonthegeek)
--  🐘 [@dslc@fosstodon.org](https://fosstodon.org/@dslc)
--  🐘 [@dslcvids@fosstodon.org](https://fosstodon.org/@dslcvids)
--  🔗 [linkedin/jonthegeek](https://www.linkedin.com/in/jonthegeek/)
--  🔗 [/company/dslc-io](https://www.linkedin.com/company/dslc-io)
--  🔗 [/company/dslcvids](https://www.linkedin.com/company/dslcvids)
+-  `r fontawesome::fa("github")` [jonthegeek](https://github.com/jonthegeek)
+-  `r fontawesome::fa("mastodon")` [@jonthegeek@fosstodon.org](https://fosstodon.org/@jonthegeek)
+-  `r fontawesome::fa("mastodon")` [@dslc@fosstodon.org](https://fosstodon.org/@dslc)
+-  `r fontawesome::fa("mastodon")` [@dslcvids@fosstodon.org](https://fosstodon.org/@dslcvids)
+-  `r fontawesome::fa("linkedin")` [linkedin/jonthegeek](https://www.linkedin.com/in/jonthegeek/)
+-  `r fontawesome::fa("linkedin")` [/company/dslc-io](https://www.linkedin.com/company/dslc-io)
+-  `r fontawesome::fa("linkedin")` [/company/dslcvids](https://www.linkedin.com/company/dslcvids)
 -   [DSLC.io](https://dslc.io)
 :::
 ::::
