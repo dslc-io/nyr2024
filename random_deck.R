@@ -21,6 +21,7 @@ gen_pkg_deck <- function(word, path_word = "random", tries = 10) {
   pkg <- stringr::str_replace_all(
     word, "(?<=[^aeiouAEIOU])[aeiouAEIOU](r|R)", "R"
   )
+  pkg <- stringr::str_replace_all(pkg, "r", "R")
   if (!stringr::str_detect(pkg, "r|R")) {
     pkg <- paste0("r", pkg)
   }
@@ -71,6 +72,8 @@ gen_pkg_deck <- function(word, path_word = "random", tries = 10) {
 }
 
 .finalize_deck <- function(deck, talk_title) {
+  deck <- stringr::str_remove_all(deck, "```markdown")
+  deck <- stringr::str_remove_all(deck, "```")
   header <- .create_header(talk_title)
   paste(header, deck, sep = "\n")
 }
@@ -100,7 +103,12 @@ gen_pkg_deck <- function(word, path_word = "random", tries = 10) {
     images$desc,
     images$filename,
     \(desc, filename) {
-      robodeck::gen_image(desc, title = talk_title, image_path = filename)
+      robodeck::gen_image(
+        desc,
+        title = talk_title,
+        image_path = filename,
+        image_size = "large"
+      )
     }
   )
 }

@@ -426,26 +426,23 @@
 </div>
 </div>
 </div>
-<div class="fragment" data-fragment-index="4" style="text-align: center;">
+<div class="fragment" data-fragment-index="3" style="text-align: center;">
 <p>Join us at <a href="https://DSLC.io">DSLC.io</a>!</p>
 </div>
 <aside class="notes">
 <ul>
-<li>I run the Data Science Learning Community, DSLC.io</li>
-<li>You may know us as R4DS or the R4DS Online Learning Community</li>
-<li>Started as a book club for R4DS in 2017, but
+<li>Data Science Learning Community (DSLC.io)</li>
+<li>FKA R4DS / R4DS Online Learning Community</li>
+<li>Started R4DS book club 2017…
 <ul>
-<li>We’ve never been affiliated with that book</li>
-<li>We cover much more than that one book</li>
-<li>Book clubs in R, Python, Julia, and Javascript</li>
-<li>Question answering and mentoring</li>
-<li>If you want to learn anything about data science, we’re here to help.</li>
+<li>Never affiliated - Much more!</li>
+<li>R, Python, Julia, Javascript, Rust (soon)</li>
+<li>Q&amp;A - Learn anything Data Science</li>
 </ul></li>
 <li><em>(load text)</em></li>
-<li>I want to tell everybody about us &amp; the name change.</li>
-<li>I don’t want to keep giving the same talk.</li>
-<li>Conferences don’t want me to keep giving the same talk.</li>
-<li>Creating a new talk is hard.</li>
+<li>Want to talk about us!</li>
+<li>Not same talk (me/conf)</li>
+<li>New talk = hard</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -531,12 +528,13 @@ You could start with a completely empty deck!</code></pre>
 </div>
 <aside class="notes">
 <ul>
-<li>It’s 2024, so I have to think about GenAI and NLP</li>
-<li>This conference is highlighting past speakers</li>
-<li>Spoke about LLMs before LLMs were cool, DCR 2019</li>
-<li>In the Before Times!</li>
-<li>That package has been superseded by {tidybert}</li>
-<li>But maybe I could do something with OpenAI’s GPT models?</li>
+<li>2024 = GenAI (fka NLP)</li>
+<li>Highlighting past speakers:
+<ul>
+<li>LLMs before LLMs were cool, DCR 2019</li>
+</ul></li>
+<li>Superseded by {tidybert}</li>
+<li>Maybe I could do something with OpenAI’s GPT models?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -581,7 +579,7 @@ You could start with a completely empty deck!</code></pre>
 <aside class="notes">
 <ul>
 <li>Not to belittle any other talks today.</li>
-<li>Scoring based on factuality would be hard and expensive.</li>
+<li>Scoring on factuality = hard &amp; expensive.</li>
 <li>Information <em>seems</em> factual, but often isn’t.</li>
 </ul>
 <style type="text/css">
@@ -601,7 +599,7 @@ You could start with a completely empty deck!</code></pre>
 
 <img data-src="images/guess01.png" class="r-stretch"><aside class="notes">
 <ul>
-<li>I’ve seen this used on social media as evidence that GPT is able to reason.</li>
+<li>Seen on social media as evidence that GPT can reason.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -620,7 +618,7 @@ You could start with a completely empty deck!</code></pre>
 
 <img data-src="images/guess02.png" class="r-stretch"><aside class="notes">
 <ul>
-<li>At this point it tells us that its answer is “locked in”.</li>
+<li>Answer is “locked in”.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -637,22 +635,7 @@ You could start with a completely empty deck!</code></pre>
 <section id="llms-only-pretend-to-be-smart-3" class="slide level2" data-transition="fade-in fade-out">
 <h2>LLMs only pretend to be smart</h2>
 
-<img data-src="images/guess03.png" class="r-stretch"><aside class="notes">
-<ul>
-<li>If it’s “thinking,” my number should be either right or wrong.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+<img data-src="images/guess03.png" class="r-stretch"></section>
 <section id="llms-only-pretend-to-be-smart-4" class="slide level2" data-transition="fade-in fade-out">
 <h2>LLMs only pretend to be smart</h2>
 <p><img data-src="images/guess04.png"></p>
@@ -661,8 +644,8 @@ You could start with a completely empty deck!</code></pre>
 </div>
 <aside class="notes">
 <ul>
-<li>And oh no, I’m wrong!</li>
-<li>But you can have it regenerate an answer without starting over.</li>
+<li>Oh no! I’m wrong!</li>
+<li>But can regenerate an answer.</li>
 <li>And when you do…</li>
 </ul>
 <style type="text/css">
@@ -686,14 +669,14 @@ You could start with a completely empty deck!</code></pre>
 </ul>
 <aside class="notes">
 <ul>
-<li>It makes a new answer that sounds like what it’s supposed to say.</li>
+<li>New answer sounds like it’s supposed to.</li>
 <li>Before statisticians get too excited:</li>
-<li>If the range was larger, it might never score you as correct, because people rarely say “you got it” when the range is large.</li>
+<li>Larger range = never correct, because “you got it” rare in those cases.</li>
 <li>More practical examples (bullets)</li>
-<li>Even the latest GPT model will create a talk outline with times included,
+<li>Even latest GPT talk outline with times,
 <ul>
-<li>But those times add up to more than the target time.</li>
-<li>And then it confidently says that they add up to LESS than the target time.</li>
+<li>But sum(times) &gt; target time.</li>
+<li>And then it confidently says sum(times) &lt; target.</li>
 </ul></li>
 </ul>
 <style type="text/css">
@@ -1528,7 +1511,10 @@ We're still the same community.
 </section></section>
 <section id="live-demo-robodeck-in-action" class="title-slide slide level1 center">
 <h1>Live demo: {robodeck} in action</h1>
-<p><a href="random_deck/random.html">Randomly generated deck</a></p>
+<ul>
+<li class="fragment"><a href="random_deck/random.html">Randomly generated deck</a></li>
+<li class="fragment"><a href="random_deck_bak/random.html">Emergency back up</a></li>
+</ul>
 <aside class="notes">
 <ul>
 <li>As I walked on stage, I asked Jared for a word.</li>
