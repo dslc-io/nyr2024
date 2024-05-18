@@ -40,24 +40,21 @@ format:
 ::::
 :::::
 
-::: {.fragment fragment-index=4 style="text-align: center;"}
+::: {.fragment fragment-index=3 style="text-align: center;"}
 Join us at [DSLC.io](https://DSLC.io)!
 :::
 
 ::: notes
--   I run the Data Science Learning Community, DSLC.io
--   You may know us as R4DS or the R4DS Online Learning Community
--   Started as a book club for R4DS in 2017, but
-    -   We've never been affiliated with that book
-    -   We cover much more than that one book
-    -   Book clubs in R, Python, Julia, and Javascript
-    -   Question answering and mentoring
-    -   If you want to learn anything about data science, we're here to help.
+-   Data Science Learning Community (DSLC.io)
+-   FKA R4DS / R4DS Online Learning Community
+-   Started R4DS book club 2017...
+    -   Never affiliated - Much more!
+    -   R, Python, Julia, Javascript, Rust (soon)
+    -   Q&A - Learn anything Data Science
 -   *(load text)* 
--   I want to tell everybody about us & the name change.
--   I don't want to keep giving the same talk.
--   Conferences don't want me to keep giving the same talk.
--   Creating a new talk is hard.
+-   Want to talk about us!
+-   Not same talk (me/conf)
+-   New talk = hard
 :::
 
 ## The curse of the new .qmd
@@ -128,12 +125,11 @@ You could start with a completely empty deck!
 :::::
 
 ::: notes
--   It's 2024, so I have to think about GenAI and NLP
--   This conference is highlighting past speakers
--   Spoke about LLMs before LLMs were cool, DCR 2019
--   In the Before Times!
--   That package has been superseded by {tidybert}
--   But maybe I could do something with OpenAI's GPT models?
+-   2024 = GenAI (fka NLP)
+-   Highlighting past speakers:
+    -   LLMs before LLMs were cool, DCR 2019
+-   Superseded by {tidybert}
+-   Maybe I could do something with OpenAI's GPT models?
 :::
 
 # LLM caveats
@@ -155,7 +151,7 @@ You could start with a completely empty deck!
 
 ::: notes
 -   Not to belittle any other talks today.
--   Scoring based on factuality would be hard and expensive.
+-   Scoring on factuality = hard & expensive.
 -   Information *seems* factual, but often isn't.
 :::
 
@@ -164,7 +160,7 @@ You could start with a completely empty deck!
 ![](images/guess01.png)
 
 ::: notes
--   I've seen this used on social media as evidence that GPT is able to reason.
+-   Seen on social media as evidence that GPT can reason.
 :::
 
 ## LLMs only pretend to be smart {transition="fade-in fade-out"}
@@ -172,16 +168,12 @@ You could start with a completely empty deck!
 ![](images/guess02.png)
 
 ::: notes
--   At this point it tells us that its answer is "locked in".
+-   Answer is "locked in".
 :::
 
 ## LLMs only pretend to be smart {transition="fade-in fade-out"}
 
 ![](images/guess03.png)
-
-::: notes
--   If it's "thinking," my number should be either right or wrong.
-:::
 
 ## LLMs only pretend to be smart {transition="fade-in fade-out"}
 
@@ -192,8 +184,8 @@ You could start with a completely empty deck!
 :::
 
 ::: notes
--   And oh no, I'm wrong!
--   But you can have it regenerate an answer without starting over.
+-   Oh no! I'm wrong!
+-   But can regenerate an answer.
 -   And when you do...
 :::
 
@@ -205,13 +197,13 @@ You could start with a completely empty deck!
 -   Often won't follow explicit instructions
 
 ::: notes
--   It makes a new answer that sounds like what it's supposed to say.
+-   New answer sounds like it's supposed to.
 -   Before statisticians get too excited:
--   If the range was larger, it might never score you as correct, because people rarely say "you got it" when the range is large.
+-   Larger range = never correct, because "you got it" rare in those cases.
 -   More practical examples (bullets)
--   Even the latest GPT model will create a talk outline with times included, 
-    -   But those times add up to more than the target time.
-    -   And then it confidently says that they add up to LESS than the target time.
+-   Even latest GPT talk outline with times, 
+    -   But sum(times) > target time.
+    -   And then it confidently says sum(times) < target.
 :::
 
 
@@ -970,7 +962,8 @@ Join the [Data Science Learning Community!](https://dslc.io)
 
 # Live demo: {robodeck} in action
 
-[Randomly generated deck](random_deck/random.html)
+-   [Randomly generated deck](random_deck/random.html)
+-   [Emergency back up](random_deck_bak/random.html)
 
 ::: notes
 -   As I walked on stage, I asked Jared for a word.
